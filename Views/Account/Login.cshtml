@@ -1,0 +1,61 @@
+﻿@using ReffAppT.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Zaloguj się do aplikacji";
+}
+
+<h2>@ViewBag.Title.</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <table>
+                    <tr>
+                        <td></td>
+                        <td style="text-decoration:underline">Zaloguj się</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(model => model.Email)
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Email)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Email)</td>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.LabelFor(model => model.Password)</td>
+                        <td>@Html.EditorFor(model => model.Password)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Password)</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" name="name" value="Login" />
+                            <input type="reset" name="name" value="Clear" />
+                        </td>
+                    </tr>
+                </table>
+            }
+            
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

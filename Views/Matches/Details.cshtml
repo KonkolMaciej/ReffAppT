@@ -1,0 +1,75 @@
+﻿@model ReffAppT.Models.Match
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Match</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HostTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HostTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuestTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuestTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GymAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GymAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Liga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Liga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefId)
+        </dt>
+
+        <dd>
+            @Html.DropDownList("RefId", null, htmlAttributes: new { @class = "form-control" })
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MatchId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
