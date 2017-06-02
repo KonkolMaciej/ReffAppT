@@ -36,9 +36,13 @@ namespace ReffAppT.Controllers
         }
 
         // GET: Referees/Create
+       
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
+        
+            
         }
 
         // POST: Referees/Create
@@ -59,6 +63,7 @@ namespace ReffAppT.Controllers
         }
 
         // GET: Referees/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +95,7 @@ namespace ReffAppT.Controllers
         }
 
         // GET: Referees/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -17,7 +17,7 @@ namespace ReffAppT.Controllers
         // GET: Matches
         public ActionResult Index()
         {
-
+           
             return View(db.Matches.ToList());
         }
 

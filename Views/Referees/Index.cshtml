@@ -1,13 +1,20 @@
-﻿@model IEnumerable<ReffAppT.Models.Referee>
+﻿@using ReffAppT.Models;
+@model IEnumerable<ReffAppT.Models.Referee>
+   
+
+    
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>@Html.Retrieve_Label("Strona główna dodawania sędziów")</h2>
 
 <p>
+@if (User.Identity.IsAuthenticated)
+{
     @Html.ActionLink("Create New", "Create")
+}
 </p>
 <table class="table">
     <tr>
@@ -56,13 +63,28 @@
             @Html.DisplayFor(modelItem => item.Active)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RefId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RefId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RefId })
+
+     @if (User.Identity.IsAuthenticated)
+ {
+            @Html.ActionLink("Details", "Details", new { id=item.RefId }, new { @class = "btn btn-warning" })
+ }
+
+     @if (User.IsInRole("Admin"))
+             {
+            @Html.ActionLink("Edit", "Edit", new { id = item.RefId }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.RefId }, new { @class = "btn btn-danger" })
+             }
+
         </td>
     </tr>
-
+    <div class="display-field">
+        @Html.Image("C:/logo.jpg","Logo")
+         </div>
 } 
+
+   
+
+    
    
 
 </table>
