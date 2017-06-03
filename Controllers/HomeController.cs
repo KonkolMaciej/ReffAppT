@@ -8,7 +8,7 @@ namespace ReffAppT.Controllers
 {
     public class HomeController : Controller
     {
-        [Authorize(Roles = "admin")]
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
@@ -21,6 +21,7 @@ namespace ReffAppT.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

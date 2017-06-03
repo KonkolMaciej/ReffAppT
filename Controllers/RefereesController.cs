@@ -15,6 +15,7 @@ namespace ReffAppT.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Referees
+
         public ActionResult Index()
         {
             return View(db.Referees.ToList());

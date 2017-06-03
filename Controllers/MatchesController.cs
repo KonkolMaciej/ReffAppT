@@ -15,12 +15,17 @@ namespace ReffAppT.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Matches
-        public ActionResult Index(Referee)
+        public ActionResult Index()
         {
-            // var user = db.Referees.FirstOrDefault(x => "x.RefId" == "RefId");
+            //    if (db.Matches.FirstOrDefault(x => x.RefId >= 0) == null)
+            if (db.Matches.Any())
+                return View(db.Matches.ToList());
+            
+            throw new Exception("brak rekordow");
+
+            //var user = db.Referees.FirstOrDefault(x => x.RefId = RefId);
             //  var user = db.Referees.FirstOrDefault(x => x.RefId.Equals(referee RefId);
-            ViewBag.RefId = new SelectList(db.Referees, "RefId", "FullName");
-            return View(db.Matches.ToList());
+           // ViewBag.RefId = new SelectList(db.Referees, "RefId", "FullName");
         }
 
         // GET: Matches/Details/5

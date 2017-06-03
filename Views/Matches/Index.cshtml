@@ -12,6 +12,7 @@
 <table class="table">
     <tr>
         <th>
+
             @Html.DisplayNameFor(model => model.HostTeam)
         </th>
         <th>
@@ -56,10 +57,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.AddDate)
         </td>
+
+@foreach (var referee in item.Referees)
+{
         <td>
-            @Html.DisplayFor(modelItem => (item.RefID) )
-        
+            @Html.TextBox("Liga", item.Liga)
+            
+            @Html.DisplayFor(RefereeItem => referee.Name)
         </td>
+}
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MatchId }) |
             @Html.ActionLink("Details", "Details", new { id=item.MatchId }) |
