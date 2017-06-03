@@ -5,13 +5,13 @@ using System.Web.Mvc;
 
 namespace ReffAppT.Models
 {
-   
+
     public class LoginViewModel
     {
         [Required]
         [Display(Name = "Adres e-mail")]
         [EmailAddress]
-        
+
         public string Email { get; set; }
 
         [Required]
@@ -26,9 +26,9 @@ namespace ReffAppT.Models
     public class RegisterViewModel
     {
         [Required]
-        //[EmailAddress]
+        [EmailAddress]
         [Display(Name = "Adres e-mail")]
-        [IsValid]
+        //[IsValid]
         public string Email { get; set; }
 
         [Required]
@@ -41,30 +41,33 @@ namespace ReffAppT.Models
         [DataType(DataType.Password)]
         [Display(Name = "Potwierdź hasło")]
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Hasło i jego potwierdzenie są niezgodne.")]
-        
+
         public string ConfirmPassword { get; set; }
         public string RoleName { get; set; }
     }
 
+   
 
-    public class IsValid : ValidationAttribute
-    {
-        public IsValid()
-        {
-            ErrorMessage = (" Email jest błędny.");
-        }
+        //    public class IsValid : ValidationAttribute
+        //{
+        //    public IsValid()
+        //    {
+        //        ErrorMessage = (" Email jest błędny.");
+        //    }
 
-        public bool IsValidEmail(string Email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(Email);
-                return addr.Address == Email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        //    public bool IsValidEmail(string Email)
+        //    {
+        //        try
+        //        {
+        //            var addr = new System.Net.Mail.MailAddress(Email);
+        //            return addr.Address == Email;
+        //        }
+        //        catch
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //}
     }
-}
+
+ 

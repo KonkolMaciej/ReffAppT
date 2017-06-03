@@ -18,16 +18,27 @@ namespace ReffAppT.Models
 
         [Key]
         public int RefId { get; set; }
+        [Required]
+        [Display(Name = "Imie: ")]
         public string Name { get; set; }
+        [Required]
+        [Display(Name = "Naz: ")]
         public string Surname { get; set; }
         [NotMapped]
         public string FullName
         {
             get { return Name + " " + Surname; }
         }
+        [Display(Name = "Adres: ")]
         public string Address { get; set; }
+        [Required]
+        [Display(Name = "Miasto: ")]
         public string City { get; set; }
+        [Required]
+        [Display(Name = "Kod pocztowy: ")]
+        [MaxLength(12)]
         public string PostalCode { get; set; }
+        [Display(Name = "Aktywny ")]
         public bool Active { get; set; }
         public virtual Match Match { get; set; }
 

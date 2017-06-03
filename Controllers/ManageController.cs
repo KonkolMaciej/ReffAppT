@@ -26,7 +26,7 @@ namespace ReffAppT.Controllers
             SignInManager = signInManager;
         }
 
-        public ApplicationSignInManager SignInManager
+       public ApplicationSignInManager SignInManager
         {
             get
             {

@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 @using ReffAppT.Models;
-
+@using ReffAppT.Controllers;
+@{var roles = new List<string>
+    { "Admin", "Referee" }; }
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -30,6 +32,9 @@
                     <li>@Html.ActionLink("Mecze", "Index", "Matches")</li>
                     <li>@Html.ActionLink("Sędziowie", "Index", "Referees")</li>
                     <li>@Html.ActionLink("Role", "Index", "Role")</li>
+                    <li>@Html.ActionLink("Zarejstruj", "Register", "Account")</li>
+              
+                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
