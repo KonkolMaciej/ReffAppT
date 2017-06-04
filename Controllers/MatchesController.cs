@@ -18,10 +18,11 @@ namespace ReffAppT.Controllers
         public ActionResult Index()
         {
             //    if (db.Matches.FirstOrDefault(x => x.RefId >= 0) == null)
-            if (db.Matches.Any())
-                return View(db.Matches.ToList());
+
+           
+            return View(db.Matches.ToList());
             
-            throw new Exception("brak rekordow");
+           // throw new Exception("brak rekordow");
 
             //var user = db.Referees.FirstOrDefault(x => x.RefId = RefId);
             //  var user = db.Referees.FirstOrDefault(x => x.RefId.Equals(referee RefId);

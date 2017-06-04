@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 
 namespace ReffAppT.Models
@@ -11,7 +12,7 @@ namespace ReffAppT.Models
         [Required]
         [Display(Name = "Adres e-mail")]
         [EmailAddress]
-
+        [Index(IsUnique = true)]
         public string Email { get; set; }
 
         [Required]

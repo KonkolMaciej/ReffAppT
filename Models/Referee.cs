@@ -16,6 +16,10 @@ namespace ReffAppT.Models
     public class Referee
     {
 
+        public Referee()
+        {
+            Matches = new List<Match>();
+        }
         [Key]
         public int RefId { get; set; }
         [Required]
@@ -40,8 +44,8 @@ namespace ReffAppT.Models
         public string PostalCode { get; set; }
         [Display(Name = "Aktywny ")]
         public bool Active { get; set; }
-        public virtual Match Match { get; set; }
-
+        //public virtual Match Match { get; set; }
+        public virtual ICollection<Match> Matches { get; set; }
     }
 
 

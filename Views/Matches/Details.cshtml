@@ -63,8 +63,7 @@
         </dt>
 
         <dd>
-            @Html.DropDownList("RefId", null, htmlAttributes: new { @class = "form-control" })
-
+            @Html.DisplayFor(model => model.Referee.FullName)
         </dd>
 
     </dl>

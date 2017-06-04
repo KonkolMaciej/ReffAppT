@@ -11,10 +11,10 @@ namespace ReffAppT.Models
 {
     public class Match
     {
-        public Match()
-        {
-            this.Referees = new HashSet<Referee>();
-        }
+        //public Match()
+        //{
+        //    Referees = new List<Referee>();
+        //}
         [Key]
         public int MatchId { get; set; }
         [Display(Name = "Drużyna gospodarzy:")]
@@ -41,8 +41,8 @@ namespace ReffAppT.Models
         [Display(Name = "Referee name: ")]
         public int RefId { get; set; }
         //[ForeignKey("Id")]
-        public ICollection<Referee> Referees { get; set; }
-    
+        // public ICollection<Referee> Referees { get; set; }
+        public virtual Referee Referee { get; set; }
 
     }
     public enum Categories
