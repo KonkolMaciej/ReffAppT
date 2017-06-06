@@ -51,7 +51,7 @@ namespace ReffAppT.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RefId,Login,Password,Name,Surname,Address,City,PostalCode,Active,LoginErrorMessage,Email")] Referee referee)
+        public ActionResult Create([Bind(Include = "RefId,Name,Surname,Address,City,PostalCode,Active,Email")] Referee referee)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace ReffAppT.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RefId,Login,Password,Name,Surname,Address,City,PostalCode,Active,LoginErrorMessage,Email")] Referee referee)
+        public ActionResult Edit([Bind(Include = "RefId,Login,Password,Name,Surname,Address,City,PostalCode,Active,Email")] Referee referee)
         {
             if (ModelState.IsValid)
             {
