@@ -3,9 +3,11 @@ using ReffAppT.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ReffAppT.Controllers
 {
@@ -84,6 +86,8 @@ namespace ReffAppT.Controllers
             await RoleManager.DeleteAsync(role);
             return View(new RoleViewModel(role));
         }
+     
     }
+   
 
 }

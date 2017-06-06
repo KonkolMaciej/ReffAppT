@@ -17,8 +17,16 @@ namespace ReffAppT.Controllers
         // GET: Matches
         public ActionResult Index()
         {
+            //    if (db.Matches.FirstOrDefault(x => x.RefId >= 0) == null)
+
            
             return View(db.Matches.ToList());
+            
+           // throw new Exception("brak rekordow");
+
+            //var user = db.Referees.FirstOrDefault(x => x.RefId = RefId);
+            //  var user = db.Referees.FirstOrDefault(x => x.RefId.Equals(referee RefId);
+           // ViewBag.RefId = new SelectList(db.Referees, "RefId", "FullName");
         }
 
         // GET: Matches/Details/5
@@ -51,6 +59,7 @@ namespace ReffAppT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MatchId,HostTeam,GuestTeam,GymAddress,Liga,Category,AddDate,RefId")] Match match)
         {
+            ViewBag.RefId = new SelectList(db.Referees, "RefId", "FullName");
             if (ModelState.IsValid)
             {
                 db.Matches.Add(match);
@@ -64,6 +73,7 @@ namespace ReffAppT.Controllers
         // GET: Matches/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewBag.RefId = new SelectList(db.Referees, "RefId", "FullName");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
