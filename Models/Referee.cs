@@ -26,7 +26,7 @@ namespace ReffAppT.Models
         [Display(Name = "Imie: ")]
         public string Name { get; set; }
         [Required]
-        [Display(Name = "Naz: ")]
+        [Display(Name = "Nazwisko: ")]
         public string Surname { get; set; }
         [NotMapped]
         public string FullName
@@ -44,7 +44,6 @@ namespace ReffAppT.Models
         public string PostalCode { get; set; }
         [Display(Name = "Aktywny ")]
         public bool Active { get; set; }
-        //public virtual Match Match { get; set; }
         public virtual ICollection<Match> Matches { get; set; }
     }
 

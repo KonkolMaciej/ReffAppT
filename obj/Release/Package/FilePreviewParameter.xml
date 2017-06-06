@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="ReffAppT20170604023646" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\maciej\\documents\\visual\ studio\ 2017\\Projects\\ReffAppT\\ReffAppT\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\maciej\\documents\\visual\ studio\ 2017\\Projects\\ReffAppT\\ReffAppT\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=reffappt2017dbserver.database.windows.net;Initial Catalog=ReffappT;Persist Security Info=True;User ID=Maciej;Password=Zaq12wsx" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\maciej\\documents\\visual\ studio\ 2017\\Projects\\ReffAppT\\ReffAppT\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

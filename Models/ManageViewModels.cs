@@ -58,29 +58,29 @@ namespace ReffAppT.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class AddPhoneNumberViewModel
-    {
-        [Required]
-        [Phone]
-        [Display(Name = "Numer telefonu")]
-        public string Number { get; set; }
-    }
+    //public class AddPhoneNumberViewModel
+    //{
+    //    [Required]
+    //    [Phone]
+    //    [Display(Name = "Numer telefonu")]
+    //    public string Number { get; set; }
+    //}
 
-    public class VerifyPhoneNumberViewModel
-    {
-        [Required]
-        [Display(Name = "Kod")]
-        public string Code { get; set; }
+    //public class VerifyPhoneNumberViewModel
+    //{
+    //    [Required]
+    //    [Display(Name = "Kod")]
+    //    public string Code { get; set; }
 
-        [Required]
-        [Phone]
-        [Display(Name = "Numer telefonu")]
-        public string PhoneNumber { get; set; }
-    }
+    //    [Required]
+    //    [Phone]
+    //    [Display(Name = "Numer telefonu")]
+    //    public string PhoneNumber { get; set; }
+    //}
 
-    public class ConfigureTwoFactorViewModel
-    {
-        public string SelectedProvider { get; set; }
-        public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
-    }
+    //public class ConfigureTwoFactorViewModel
+    //{
+    //    public string SelectedProvider { get; set; }
+    //    public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
+    //}
 }
