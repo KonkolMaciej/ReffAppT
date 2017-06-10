@@ -1,6 +1,6 @@
 ﻿@using ReffAppT.Models;
-
-@model ReffAppT.Models.IndexViewModel
+@model IEnumerable<ReffAppT.Models.Match>
+@*@model ReffAppT.Models.RegisterViewModel*@
     @{
         ViewBag.Title = "Zarządzaj";
     }
@@ -12,7 +12,9 @@
         <h4>Zmień ustawienia konta</h4>
         <hr />
         <dl class="dl-horizontal">
-   
+            <ul>
+
+            </ul>
     <p>
         @Html.Retrieve_Label("Strona dostępna tylko w wersji premium!")
     </p>

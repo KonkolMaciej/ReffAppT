@@ -37,6 +37,7 @@ namespace ReffAppT.Controllers
                 _roleManager = value;
             }
         }
+        [Authorize]
         public ActionResult Index()
         {
             List<RoleViewModel> list = new List<RoleViewModel>();
@@ -44,6 +45,7 @@ namespace ReffAppT.Controllers
                 list.Add(new RoleViewModel(role));
             return View(list);
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -55,37 +57,7 @@ namespace ReffAppT.Controllers
             await RoleManager.CreateAsync(role);
             return RedirectToAction("Index");
         }
-        public async Task<ActionResult> Edit(string id)
-        {
-            var role = await RoleManager.FindByIdAsync(id);
-            return View(new RoleViewModel(role));
-
-        }
-        [HttpPost]
-        public async Task<ActionResult> Edit(RoleViewModel model)
-        {
-            var role = new ApplicationUserManager.ApplicationRole() { Id = model.Id, Name = model.Id };
-            await RoleManager.UpdateAsync(role);
-            return RedirectToAction("index");
-        }
-        public async Task<ActionResult> Details(string id)
-        {
-            var role = await RoleManager.FindByIdAsync(id);
-            return View(new RoleViewModel(role));
-
-        }
-        
-        public async Task<ActionResult> Delete(string id)
-        {
-            var role = await RoleManager.FindByIdAsync(id);
-            return View(new RoleViewModel(role));
-        }
-        public async Task<ActionResult> DeleteConfirmed(string id)
-        {
-            var role = await RoleManager.FindByIdAsync(id);
-            await RoleManager.DeleteAsync(role);
-            return View(new RoleViewModel(role));
-        }
+      
      
     }
    

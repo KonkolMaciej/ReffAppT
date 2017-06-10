@@ -11,6 +11,15 @@
 </p>
 <table class="table">
     <tr>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+    </tr>
+    <tr>
         <th>
 
             @Html.DisplayNameFor(model => model.HostTeam)

@@ -24,6 +24,7 @@ namespace ReffAppT.Controllers
         // GET: Referees/Details/5
         public ActionResult Details(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,7 +85,7 @@ namespace ReffAppT.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RefId,Login,Password,Name,Surname,Address,City,PostalCode,Active,Email")] Referee referee)
+        public ActionResult Edit([Bind(Include = "RefId, Name, Surname, Address, City, PostalCode, Active, Email")] Referee referee)
         {
             if (ModelState.IsValid)
             {
@@ -120,6 +121,14 @@ namespace ReffAppT.Controllers
             db.Referees.Remove(referee);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult ShowMatch(int? id)
+        {
+            var match = from matches in db.Matches
+            .Include("Referees").Where(Ref => Ref.Referee.RefId == id)
+                          select matches.GuestTeam;
+            var referees = match.ToList();
+            return View(referees);
         }
 
         protected override void Dispose(bool disposing)

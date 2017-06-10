@@ -1,0 +1,33 @@
+﻿@model List<ReffAppT.Models.Referee>
+@{
+    ViewBag.Title = "ShowMatches";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Referee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dt>
+         @*   @Html.DisplayNameFor(model => model.Name)*@
+        </dt>
+
+@foreach (var item in Model)
+{
+        <dt>
+            @Html.DisplayFor(modelItem => item.Matches.)
+        </dt>
+}
+
+
+
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

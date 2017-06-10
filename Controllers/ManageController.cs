@@ -14,50 +14,16 @@ namespace ReffAppT.Controllers
     public class ManageController : Controller
     {
         private ApplicationUserManager _userManager;
-
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public ActionResult Index()
         {
+    // var matches = from refe in db.Matches
+    //.Include("Referees").Where(Ref => Ref.MatchId == Matches. )
+    // select refe;
+
             return View();
         }
 
- 
-
-       
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && _userManager != null)
-            {
-                _userManager.Dispose();
-                _userManager = null;
-            }
-
-            base.Dispose(disposing);
-        }
-
-#region Pomocnicy
-        // Służy do ochrony XSRF podczas dodawania logowań zewnętrznych
-       // private const string XsrfKey = "XsrfId";
-
-        //private IAuthenticationManager AuthenticationManager
-        //{
-        //    get
-        //    {
-        //        return HttpContext.GetOwinContext().Authentication;
-        //    }
-        //}
-
-        //private void AddErrors(IdentityResult result)
-        //{
-        //    foreach (var error in result.Errors)
-        //    {
-        //        ModelState.AddModelError("", error);
-        //    }
-        //}
-
-
-
-#endregion
     }
 }

@@ -15,18 +15,21 @@ namespace ReffAppT.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Matches
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             //    if (db.Matches.FirstOrDefault(x => x.RefId >= 0) == null)
+            var matches = from s in db.Matches
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                matches = matches.Where(s => s.GuestTeam.Contains(searchString)|| s.HostTeam.Contains(searchString));
+            }
 
-           
             return View(db.Matches.ToList());
             
            // throw new Exception("brak rekordow");
 
-            //var user = db.Referees.FirstOrDefault(x => x.RefId = RefId);
-            //  var user = db.Referees.FirstOrDefault(x => x.RefId.Equals(referee RefId);
-           // ViewBag.RefId = new SelectList(db.Referees, "RefId", "FullName");
+
         }
 
         // GET: Matches/Details/5
@@ -71,6 +74,7 @@ namespace ReffAppT.Controllers
         }
 
         // GET: Matches/Edit/5
+        [Authorize(Roles = "Referee")]
         public ActionResult Edit(int? id)
         {
             ViewBag.RefId = new SelectList(db.Referees, "RefId", "FullName");
@@ -104,6 +108,7 @@ namespace ReffAppT.Controllers
         }
 
         // GET: Matches/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -121,6 +126,7 @@ namespace ReffAppT.Controllers
         // POST: Matches/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Match match = db.Matches.Find(id);
